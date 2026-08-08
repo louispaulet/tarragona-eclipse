@@ -1,0 +1,153 @@
+import type { LocaleConfig } from "./types";
+
+export const ca = {
+  meta: {
+    title: "Eclipsi de Tarragona 2026",
+    description: "Tot el que necessites per viure l'eclipsi total de Sol de Tarragona el 12 d'agost de 2026.",
+    imageAlt: "Cartell de l'Eclipsi de Tarragona 2026",
+  },
+  loadingLabel: "S'està carregant la guia de l'eclipsi",
+  brand: "ECLIPSI TARRAGONA",
+  languageSelector: {
+    label: "Tria l'idioma",
+  },
+  nav: {
+    mainLabel: "Navegació principal",
+    aboutLabel: "Navegació de la pàgina sobre el projecte",
+    homeLabel: "Inici d'Eclipsi Tarragona",
+    timeline: "Cronologia",
+    viewingGuide: "Guia d'observació",
+    about: "Sobre el projecte",
+    planSpot: "Prepara el teu lloc",
+    eclipseGuide: "Guia de l'eclipsi",
+    officialInformation: "Informació oficial",
+    backHome: "Torna a l'inici",
+  },
+  hero: {
+    eyebrow: "Un minut. Un segle per arribar fins aquí.",
+    headlineFirst: "El dia",
+    headlineSecond: "es fa",
+    headlineEmphasis: "nit.",
+    intro: "A la costa mediterrània, la Lluna cobrirà completament el Sol i Tarragona quedarà a les fosques durant 61 segons inoblidables.",
+    weekday: "DC",
+    date: "12 · 08 · 26",
+    time: "20:29 CEST",
+    discover: "Descobreix",
+    scrollLabel: "Ves al compte enrere",
+  },
+  countdown: {
+    kicker: "Fins a la totalitat",
+    upcoming: "L'ombra s'acosta.",
+    finished: "Mira cap a l'oest.",
+    ariaLabel: "Compte enrere fins a la totalitat",
+    units: {
+      days: "dies",
+      hours: "hores",
+      minutes: "minuts",
+      seconds: "segons",
+    },
+  },
+  timeline: {
+    kicker: "12 d'agost de 2026 · Hora local de Tarragona",
+    headline: "Un vespre,",
+    headlineEmphasis: "quatre moments.",
+    intro: "Arriba-hi d'hora. La fase parcial avança durant gairebé una hora abans del breu instant en què apareix la corona solar.",
+    totalBadge: "TOTAL",
+    events: [
+      {
+        time: "19:35",
+        title: "Primer contacte",
+        description: "La Lluna comença a passar davant del Sol. Posa't les ulleres d'eclipsi.",
+      },
+      {
+        time: "20:29",
+        title: "Comença la totalitat",
+        description: "Desapareix la llum del dia. La corona es fa visible durant 61 segons.",
+      },
+      {
+        time: "20:30",
+        title: "Torna la llum del Sol",
+        description: "Reapareix el primer raig brillant. Torna't a posar les ulleres immediatament.",
+      },
+      {
+        time: "20:58",
+        title: "Posta de sol",
+        description: "El Sol eclipsat s'amaga sota l'horitzó occidental de Tarragona.",
+      },
+    ],
+  },
+  viewing: {
+    kicker: "La teva guia d'observació",
+    headlineFirst: "Tres coses",
+    headlineSecond: "són essencials.",
+    intro: "Una preparació senzilla marca la diferència entre veure l'eclipsi i perdre-se'l.",
+    cards: [
+      {
+        label: "Horitzó",
+        title: "Mira cap a l'oest. Sense obstacles.",
+        description: "El Sol serà a només uns 4° d'altura. Tria un lloc sense turons, edificis ni arbres que tapin l'horitzó occidental.",
+      },
+      {
+        label: "Seguretat",
+        title: "Protegeix-te els ulls.",
+        description: "Utilitza ulleres d'eclipsi ISO 12312-2 abans i després de la totalitat. Les ulleres de sol normals i els filtres casolans no són segurs.",
+      },
+      {
+        label: "Horari",
+        title: "Arriba-hi molt d'hora.",
+        description: "Preveu aglomeracions i trànsit. Instal·la't força abans de les 19:35, comprova el temps i tingues preparada una ubicació alternativa.",
+      },
+    ],
+  },
+  safety: {
+    kicker: "La regla dels 61 segons",
+    headlineBefore: "Treu-te les ulleres només durant la ",
+    headlineEmphasis: "totalitat completa",
+    headlineAfter: ".",
+    body: "Tan bon punt aparegui ni que sigui un bri de llum solar directa, torna't a posar immediatament les ulleres d'eclipsi. No miris mai a través de prismàtics, una càmera o un telescopi sense un filtre solar específic col·locat al davant.",
+  },
+  finalCta: {
+    kicker: "Tarragona · 12 d'agost de 2026",
+    headlineFirst: "Ens veiem",
+    headlineSecond: "a l'",
+    headlineEmphasis: "ombra.",
+    link: "Informació oficial de l'esdeveniment",
+  },
+  footer: {
+    timingNote: "Els horaris són locals i poden variar lleugerament segons la ubicació exacta.",
+    about: "Sobre aquest web",
+    council: "Ajuntament de Tarragona",
+    ign: "IGN Espanya",
+    tagline: "Un propòsit. Un lloc. Un minut inoblidable.",
+    eclipseGuide: "Guia de l'eclipsi",
+  },
+  about: {
+    eyebrow: "Sobre aquest projecte",
+    headlineFirst: "Un web.",
+    headlineEmphasis: "Una ombra.",
+    intro: "Aquest és un web amb un únic propòsit per a un esdeveniment singular: l'eclipsi total de Sol de 2026 a Tarragona.",
+    kicker: "12 d'agost de 2026 · Tarragona",
+    bodyHeadline: "Fet per a",
+    bodyHeadlineEmphasis: "un sol minut.",
+    articles: [
+      {
+        label: "Propòsit",
+        title: "Un únic propòsit, deliberadament.",
+        bodyBefore: "Això no és un portal general d'astronomia ni una plataforma permanent d'esdeveniments. Cada pàgina, horari i indicació existeix per ajudar a preparar-se per a l'eclipsi de Tarragona del 12 d'agost de 2026.",
+      },
+      {
+        label: "Moment",
+        title: "Un esdeveniment singular a la Mediterrània.",
+        bodyBefore: "El Sol serà baix sobre l'horitzó occidental quan arribi la totalitat. Durant aproximadament 61 segons, la llum del dia donarà pas a l'ombra de la Lluna i la corona solar es farà visible sobre Tarragona.",
+      },
+      {
+        label: "Creació",
+        title: "Generat amb intel·ligència focalitzada.",
+        bodyBefore: "El web s'ha generat amb ",
+        bodyStrong: "Sol 5.6 Extra High",
+        bodyAfter: " i s'ha creat a partir d'un objectiu clar: fer que l'eclipsi se senti immediat i, alhora, explicar amb claredat els horaris, la preparació i la seguretat ocular.",
+      },
+    ],
+    returnLink: "Torna a la guia de l'eclipsi",
+  },
+} satisfies LocaleConfig;

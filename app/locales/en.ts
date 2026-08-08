@@ -1,0 +1,153 @@
+import type { LocaleConfig } from "./types";
+
+export const en = {
+  meta: {
+    title: "Eclipse Tarragona 2026",
+    description: "Everything you need to witness Tarragona's total solar eclipse on 12 August 2026.",
+    imageAlt: "Eclipse Tarragona 2026 event poster",
+  },
+  loadingLabel: "Loading eclipse guide",
+  brand: "ECLIPSE TARRAGONA",
+  languageSelector: {
+    label: "Choose language",
+  },
+  nav: {
+    mainLabel: "Main navigation",
+    aboutLabel: "About navigation",
+    homeLabel: "Eclipse Tarragona home",
+    timeline: "Timeline",
+    viewingGuide: "Viewing guide",
+    about: "About",
+    planSpot: "Plan your spot",
+    eclipseGuide: "Eclipse guide",
+    officialInformation: "Official information",
+    backHome: "Back home",
+  },
+  hero: {
+    eyebrow: "One minute. A century in the making.",
+    headlineFirst: "The day",
+    headlineSecond: "turns to",
+    headlineEmphasis: "night.",
+    intro: "On the Mediterranean coast, the Moon will completely cover the Sun and Tarragona will fall into darkness for 61 unforgettable seconds.",
+    weekday: "WED",
+    date: "12 · 08 · 26",
+    time: "20:29 CEST",
+    discover: "Discover",
+    scrollLabel: "Scroll to countdown",
+  },
+  countdown: {
+    kicker: "Until totality",
+    upcoming: "The shadow is coming.",
+    finished: "Look west.",
+    ariaLabel: "Countdown to totality",
+    units: {
+      days: "days",
+      hours: "hours",
+      minutes: "minutes",
+      seconds: "seconds",
+    },
+  },
+  timeline: {
+    kicker: "12 August 2026 · Tarragona local time",
+    headline: "One evening,",
+    headlineEmphasis: "four moments.",
+    intro: "Arrive early. The partial phase builds for almost an hour before the brief moment when the solar corona appears.",
+    totalBadge: "TOTAL",
+    events: [
+      {
+        time: "19:35",
+        title: "First contact",
+        description: "The Moon begins to cross the Sun. Eclipse glasses on.",
+      },
+      {
+        time: "20:29",
+        title: "Totality begins",
+        description: "Daylight disappears. The corona becomes visible for 61 seconds.",
+      },
+      {
+        time: "20:30",
+        title: "Sunlight returns",
+        description: "The first bright ray reappears. Glasses go straight back on.",
+      },
+      {
+        time: "20:58",
+        title: "Sunset",
+        description: "The eclipsed Sun slips below Tarragona's western horizon.",
+      },
+    ],
+  },
+  viewing: {
+    kicker: "Your viewing guide",
+    headlineFirst: "Three things",
+    headlineSecond: "matter most.",
+    intro: "Simple preparation makes the difference between seeing the eclipse and missing it.",
+    cards: [
+      {
+        label: "Horizon",
+        title: "Look west. Keep it clear.",
+        description: "The Sun will be only about 4° high. Choose a spot with no hills, buildings or trees blocking the western horizon.",
+      },
+      {
+        label: "Safety",
+        title: "Protect your eyes.",
+        description: "Use ISO 12312-2 eclipse glasses before and after totality. Ordinary sunglasses and homemade filters are not safe.",
+      },
+      {
+        label: "Timing",
+        title: "Arrive very early.",
+        description: "Expect crowds and traffic. Get settled well before 19:35, check the weather, and keep a backup viewing location ready.",
+      },
+    ],
+  },
+  safety: {
+    kicker: "The 61-second rule",
+    headlineBefore: "Glasses off only during ",
+    headlineEmphasis: "complete",
+    headlineAfter: " totality.",
+    body: "The moment even a sliver of direct sunlight appears, put your eclipse glasses back on immediately. Never look through binoculars, a camera, or a telescope without a purpose-built solar filter on the front.",
+  },
+  finalCta: {
+    kicker: "Tarragona · 12 August 2026",
+    headlineFirst: "Meet you",
+    headlineSecond: "in the ",
+    headlineEmphasis: "shadow.",
+    link: "Official event information",
+  },
+  footer: {
+    timingNote: "Times are local and may vary slightly by exact location.",
+    about: "About this site",
+    council: "Tarragona City Council",
+    ign: "IGN Spain",
+    tagline: "One purpose. One place. One unforgettable minute.",
+    eclipseGuide: "Eclipse guide",
+  },
+  about: {
+    eyebrow: "About this project",
+    headlineFirst: "One site.",
+    headlineEmphasis: "One shadow.",
+    intro: "This is a single-purpose website for a singular event: the 2026 total solar eclipse in Tarragona.",
+    kicker: "12 August 2026 · Tarragona",
+    bodyHeadline: "Made for",
+    bodyHeadlineEmphasis: "one minute.",
+    articles: [
+      {
+        label: "Purpose",
+        title: "Deliberately single-purpose.",
+        bodyBefore: "This is not a general astronomy portal or an evergreen events platform. Every page, time, and instruction exists to help people prepare for Tarragona's eclipse on 12 August 2026.",
+      },
+      {
+        label: "Moment",
+        title: "A singular event on the Mediterranean.",
+        bodyBefore: "The Sun will sit low over the western horizon when totality arrives. For roughly 61 seconds, daylight gives way to the Moon's shadow and the solar corona becomes visible above Tarragona.",
+      },
+      {
+        label: "Making",
+        title: "Generated with focused intelligence.",
+        bodyBefore: "The site was generated using ",
+        bodyStrong: "Sol 5.6 Extra High",
+        bodyAfter: " and shaped around one clear brief: make the eclipse feel immediate while keeping timing, preparation, and eye safety easy to understand.",
+      },
+    ],
+    returnLink: "Return to the eclipse guide",
+  },
+} satisfies LocaleConfig;

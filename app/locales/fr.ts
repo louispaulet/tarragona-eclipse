@@ -1,0 +1,153 @@
+import type { LocaleConfig } from "./types";
+
+export const fr = {
+  meta: {
+    title: "Éclipse de Tarragone 2026",
+    description: "Tout ce qu'il faut savoir pour vivre l'éclipse totale de Soleil à Tarragone le 12 août 2026.",
+    imageAlt: "Affiche de l'Éclipse de Tarragone 2026",
+  },
+  loadingLabel: "Chargement du guide de l'éclipse",
+  brand: "ÉCLIPSE TARRAGONE",
+  languageSelector: {
+    label: "Choisir la langue",
+  },
+  nav: {
+    mainLabel: "Navigation principale",
+    aboutLabel: "Navigation de la page À propos",
+    homeLabel: "Accueil Éclipse Tarragone",
+    timeline: "Chronologie",
+    viewingGuide: "Guide d'observation",
+    about: "À propos",
+    planSpot: "Préparer son lieu",
+    eclipseGuide: "Guide de l'éclipse",
+    officialInformation: "Informations officielles",
+    backHome: "Retour à l'accueil",
+  },
+  hero: {
+    eyebrow: "Une minute. Un siècle pour en arriver là.",
+    headlineFirst: "Le jour",
+    headlineSecond: "devient",
+    headlineEmphasis: "nuit.",
+    intro: "Sur la côte méditerranéenne, la Lune couvrira entièrement le Soleil et Tarragone plongera dans l'obscurité pendant 61 secondes inoubliables.",
+    weekday: "MER",
+    date: "12 · 08 · 26",
+    time: "20:29 CEST",
+    discover: "Découvrir",
+    scrollLabel: "Aller au compte à rebours",
+  },
+  countdown: {
+    kicker: "Jusqu'à la totalité",
+    upcoming: "L'ombre approche.",
+    finished: "Regardez vers l'ouest.",
+    ariaLabel: "Compte à rebours jusqu'à la totalité",
+    units: {
+      days: "jours",
+      hours: "heures",
+      minutes: "minutes",
+      seconds: "secondes",
+    },
+  },
+  timeline: {
+    kicker: "12 août 2026 · Heure locale de Tarragone",
+    headline: "Un soir,",
+    headlineEmphasis: "quatre moments.",
+    intro: "Arrivez tôt. La phase partielle progresse pendant près d'une heure avant le bref instant où apparaît la couronne solaire.",
+    totalBadge: "TOTALITÉ",
+    events: [
+      {
+        time: "19:35",
+        title: "Premier contact",
+        description: "La Lune commence à passer devant le Soleil. Mettez vos lunettes d'éclipse.",
+      },
+      {
+        time: "20:29",
+        title: "Début de la totalité",
+        description: "La lumière du jour disparaît. La couronne devient visible pendant 61 secondes.",
+      },
+      {
+        time: "20:30",
+        title: "Retour de la lumière",
+        description: "Le premier rayon lumineux réapparaît. Remettez immédiatement vos lunettes.",
+      },
+      {
+        time: "20:58",
+        title: "Coucher du soleil",
+        description: "Le Soleil éclipsé disparaît sous l'horizon ouest de Tarragone.",
+      },
+    ],
+  },
+  viewing: {
+    kicker: "Votre guide d'observation",
+    headlineFirst: "Trois choses",
+    headlineSecond: "sont essentielles.",
+    intro: "Une préparation simple fait toute la différence entre voir l'éclipse et la manquer.",
+    cards: [
+      {
+        label: "Horizon",
+        title: "Regardez à l'ouest. Sans obstacle.",
+        description: "Le Soleil ne sera qu'à environ 4° de hauteur. Choisissez un lieu sans colline, bâtiment ni arbre devant l'horizon ouest.",
+      },
+      {
+        label: "Sécurité",
+        title: "Protégez vos yeux.",
+        description: "Utilisez des lunettes d'éclipse ISO 12312-2 avant et après la totalité. Les lunettes de soleil ordinaires et les filtres artisanaux ne sont pas sûrs.",
+      },
+      {
+        label: "Horaire",
+        title: "Arrivez très en avance.",
+        description: "Prévoyez la foule et la circulation. Installez-vous bien avant 19:35, vérifiez la météo et gardez un autre lieu d'observation en réserve.",
+      },
+    ],
+  },
+  safety: {
+    kicker: "La règle des 61 secondes",
+    headlineBefore: "Retirez vos lunettes uniquement pendant la ",
+    headlineEmphasis: "totalité complète",
+    headlineAfter: ".",
+    body: "Dès qu'une infime partie de lumière solaire directe réapparaît, remettez immédiatement vos lunettes d'éclipse. Ne regardez jamais à travers des jumelles, un appareil photo ou un télescope sans filtre solaire spécialement conçu et placé à l'avant.",
+  },
+  finalCta: {
+    kicker: "Tarragone · 12 août 2026",
+    headlineFirst: "Rendez-vous",
+    headlineSecond: "dans l'",
+    headlineEmphasis: "ombre.",
+    link: "Informations officielles sur l'événement",
+  },
+  footer: {
+    timingNote: "Les horaires sont locaux et peuvent varier légèrement selon l'emplacement exact.",
+    about: "À propos de ce site",
+    council: "Mairie de Tarragone",
+    ign: "IGN Espagne",
+    tagline: "Un but. Un lieu. Une minute inoubliable.",
+    eclipseGuide: "Guide de l'éclipse",
+  },
+  about: {
+    eyebrow: "À propos de ce projet",
+    headlineFirst: "Un site.",
+    headlineEmphasis: "Une ombre.",
+    intro: "Ce site a un seul objectif, pour un événement exceptionnel : l'éclipse totale de Soleil de 2026 à Tarragone.",
+    kicker: "12 août 2026 · Tarragone",
+    bodyHeadline: "Conçu pour",
+    bodyHeadlineEmphasis: "une minute.",
+    articles: [
+      {
+        label: "Objectif",
+        title: "Délibérément dédié à un seul événement.",
+        bodyBefore: "Ce n'est ni un portail généraliste sur l'astronomie ni une plateforme permanente d'événements. Chaque page, horaire et consigne aide à préparer l'éclipse de Tarragone du 12 août 2026.",
+      },
+      {
+        label: "Moment",
+        title: "Un événement unique en Méditerranée.",
+        bodyBefore: "Le Soleil sera bas sur l'horizon ouest lorsque la totalité arrivera. Pendant environ 61 secondes, la lumière du jour cédera la place à l'ombre de la Lune et la couronne solaire apparaîtra au-dessus de Tarragone.",
+      },
+      {
+        label: "Création",
+        title: "Généré avec une intelligence ciblée.",
+        bodyBefore: "Le site a été généré avec ",
+        bodyStrong: "Sol 5.6 Extra High",
+        bodyAfter: " et façonné autour d'un objectif clair : rendre l'éclipse immédiate tout en expliquant simplement les horaires, la préparation et la sécurité oculaire.",
+      },
+    ],
+    returnLink: "Retour au guide de l'éclipse",
+  },
+} satisfies LocaleConfig;

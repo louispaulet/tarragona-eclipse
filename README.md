@@ -4,6 +4,11 @@ A single-purpose website for the total solar eclipse visible from Tarragona on
 12 August 2026. It includes a live countdown, the local eclipse timeline,
 viewing advice, and essential eye-safety guidance.
 
+The complete guide and About page are available in Catalan, Spanish, French,
+and English. Catalan is the fallback language, while supported browser
+preferences are selected automatically. The flag-and-code selector stores the
+visitor's choice and keeps it in the hash-route query string.
+
 Live site: [eclipse-2026.thefrenchartist.dev](https://eclipse-2026.thefrenchartist.dev/)
 
 ## Routes
@@ -13,6 +18,22 @@ Pages without server rewrites:
 
 - `/#/` — eclipse countdown, timeline, viewing guide, and safety information
 - `/#/about` — the purpose of this single-event website and how it was made
+
+Add `?lang=ca`, `?lang=es`, `?lang=fr`, or `?lang=en` to either hash route to
+link directly to a translation, for example `/#/?lang=fr`.
+
+## Translations
+
+All visitor-facing copy is centralized in `app/locales/`. Each language has a
+complete config file with the same typed structure:
+
+- `ca.ts` — Catalan
+- `es.ts` — Spanish
+- `fr.ts` — French
+- `en.ts` — English
+
+Update `types.ts` when adding a new translatable field and `index.ts` when
+registering another language.
 
 ## Local development
 

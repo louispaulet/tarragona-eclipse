@@ -54,6 +54,23 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .nav-links a:hover, .nav-links button:hover { color: white; }
 .nav-cta { border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 12px 19px; font-size: 12px; background: transparent; cursor: pointer; }
 .nav-cta:hover { border-color: white; }
+.language-switcher { display: flex; align-items: center; gap: 3px; padding: 4px; border: 1px solid rgba(255,255,255,.18); border-radius: 99px; background: rgba(5,5,6,.28); backdrop-filter: blur(8px); }
+.language-switcher button { display: flex; align-items: center; gap: 5px; min-width: 41px; padding: 6px 7px; border: 0; border-radius: 99px; color: rgba(255,255,255,.58); background: transparent; cursor: pointer; font: 650 8px/1 var(--font-geist-mono), monospace; letter-spacing: .08em; transition: color .2s ease, background .2s ease; }
+.language-switcher button:hover { color: white; background: rgba(255,255,255,.08); }
+.language-switcher button.active { color: white; background: rgba(255,255,255,.14); }
+.language-switcher button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.language-flag { display: block; flex: 0 0 auto; width: 16px; height: 11px; overflow: hidden; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
+.flag-ca { background: repeating-linear-gradient(to bottom, #f6d447 0 1.22px, #c9202f 1.22px 2.44px); }
+.flag-es { background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75%); }
+.flag-fr { background: linear-gradient(to right, #002395 0 33.333%, #fff 33.333% 66.666%, #ed2939 66.666%); }
+.flag-en {
+  background:
+    linear-gradient(34deg, transparent 42%, #fff 42% 47%, #c8102e 47% 53%, #fff 53% 58%, transparent 58%),
+    linear-gradient(-34deg, transparent 42%, #fff 42% 47%, #c8102e 47% 53%, #fff 53% 58%, transparent 58%),
+    linear-gradient(to right, transparent 40%, #fff 40% 45%, #c8102e 45% 55%, #fff 55% 60%, transparent 60%),
+    linear-gradient(to bottom, transparent 36%, #fff 36% 43%, #c8102e 43% 57%, #fff 57% 64%, transparent 64%),
+    #012169;
+}
 
 .hero-orbit { position: absolute; width: min(47vw, 650px); aspect-ratio: 1; top: 50%; left: 71%; transform: translate(-50%,-47%); }
 .sun-glow { position: absolute; inset: 2%; border-radius: 50%; background: var(--orange); box-shadow: 0 0 38px #ef542f, 0 0 110px rgba(240,82,45,.76), 0 0 240px rgba(247,170,59,.22); }
@@ -91,7 +108,7 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .timeline article:last-child { border-right: 0; }
 .timeline article::before { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); top: -4px; left: 0; }
 .timeline article:not(:first-child)::before { left: 28px; }
-.timeline .highlight::after { content: "TOTAL"; position: absolute; right: 22px; top: 20px; padding: 6px 8px; border-radius: 3px; color: white; background: var(--orange); font: 700 8px/1 var(--font-geist-mono), monospace; letter-spacing: .12em; }
+.timeline-total-badge { position: absolute; right: 22px; top: 20px; padding: 6px 8px; border-radius: 3px; color: white; background: var(--orange); font: 700 8px/1 var(--font-geist-mono), monospace; letter-spacing: .12em; }
 .step { display: block; margin-bottom: 46px; font: 600 9px/1 var(--font-geist-mono), monospace; color: #91897d; }
 .timeline time { display: block; font: 500 clamp(38px, 4.2vw, 58px)/1 var(--font-geist-mono), monospace; letter-spacing: -.07em; }
 .timeline h3 { margin: 28px 0 10px; font-size: 15px; }
@@ -182,6 +199,7 @@ footer { background: #090a0c; color: rgba(255,255,255,.5); padding: 0 0 38px; }
   .wrap { width: calc(100% - 28px); }
   .nav { height: 80px; }
   .nav-cta { padding: 10px 13px; }
+  .language-switcher { position: absolute; top: calc(100% + 12px); right: 0; }
   .hero { min-height: 940px; }
   .hero-orbit { width: 100vw; left: 76%; top: 36%; }
   .hero-content { padding-top: 65px; }

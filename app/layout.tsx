@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { defaultLocale, translations } from "./locales";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eclipse Tarragona 2026",
-  description: "Everything you need to witness Tarragona's total solar eclipse on 12 August 2026.",
+  metadataBase: new URL("https://eclipse-2026.thefrenchartist.dev"),
+  title: translations[defaultLocale].meta.title,
+  description: translations[defaultLocale].meta.description,
   icons: {
     icon: {
       url: "/eclipse_logo.webp",
@@ -22,11 +24,30 @@ export const metadata: Metadata = {
     },
     shortcut: "/eclipse_logo.webp",
   },
+  openGraph: {
+    type: "website",
+    title: translations[defaultLocale].meta.title,
+    description: translations[defaultLocale].meta.description,
+    images: [
+      {
+        url: "/og.png",
+        width: 1734,
+        height: 907,
+        alt: translations[defaultLocale].meta.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: translations[defaultLocale].meta.title,
+    description: translations[defaultLocale].meta.description,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang={defaultLocale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   );

@@ -1,0 +1,153 @@
+import type { LocaleConfig } from "./types";
+
+export const es = {
+  meta: {
+    title: "Eclipse de Tarragona 2026",
+    description: "Todo lo que necesitas para vivir el eclipse total de Sol de Tarragona el 12 de agosto de 2026.",
+    imageAlt: "Cartel del Eclipse de Tarragona 2026",
+  },
+  loadingLabel: "Cargando la guía del eclipse",
+  brand: "ECLIPSE TARRAGONA",
+  languageSelector: {
+    label: "Elige el idioma",
+  },
+  nav: {
+    mainLabel: "Navegación principal",
+    aboutLabel: "Navegación de la página sobre el proyecto",
+    homeLabel: "Inicio de Eclipse Tarragona",
+    timeline: "Cronología",
+    viewingGuide: "Guía de observación",
+    about: "Sobre el proyecto",
+    planSpot: "Prepara tu lugar",
+    eclipseGuide: "Guía del eclipse",
+    officialInformation: "Información oficial",
+    backHome: "Volver al inicio",
+  },
+  hero: {
+    eyebrow: "Un minuto. Un siglo para llegar hasta aquí.",
+    headlineFirst: "El día",
+    headlineSecond: "se hace",
+    headlineEmphasis: "noche.",
+    intro: "En la costa mediterránea, la Luna cubrirá por completo el Sol y Tarragona quedará a oscuras durante 61 segundos inolvidables.",
+    weekday: "MIÉ",
+    date: "12 · 08 · 26",
+    time: "20:29 CEST",
+    discover: "Descubre",
+    scrollLabel: "Ir a la cuenta atrás",
+  },
+  countdown: {
+    kicker: "Hasta la totalidad",
+    upcoming: "La sombra se acerca.",
+    finished: "Mira hacia el oeste.",
+    ariaLabel: "Cuenta atrás hasta la totalidad",
+    units: {
+      days: "días",
+      hours: "horas",
+      minutes: "minutos",
+      seconds: "segundos",
+    },
+  },
+  timeline: {
+    kicker: "12 de agosto de 2026 · Hora local de Tarragona",
+    headline: "Una tarde,",
+    headlineEmphasis: "cuatro momentos.",
+    intro: "Llega pronto. La fase parcial avanza durante casi una hora antes del breve instante en que aparece la corona solar.",
+    totalBadge: "TOTAL",
+    events: [
+      {
+        time: "19:35",
+        title: "Primer contacto",
+        description: "La Luna empieza a cruzar el Sol. Ponte las gafas de eclipse.",
+      },
+      {
+        time: "20:29",
+        title: "Comienza la totalidad",
+        description: "Desaparece la luz del día. La corona se hace visible durante 61 segundos.",
+      },
+      {
+        time: "20:30",
+        title: "Regresa la luz del Sol",
+        description: "Reaparece el primer rayo brillante. Vuelve a ponerte las gafas de inmediato.",
+      },
+      {
+        time: "20:58",
+        title: "Puesta de sol",
+        description: "El Sol eclipsado se oculta bajo el horizonte occidental de Tarragona.",
+      },
+    ],
+  },
+  viewing: {
+    kicker: "Tu guía de observación",
+    headlineFirst: "Tres cosas",
+    headlineSecond: "son esenciales.",
+    intro: "Una preparación sencilla marca la diferencia entre ver el eclipse y perdérselo.",
+    cards: [
+      {
+        label: "Horizonte",
+        title: "Mira al oeste. Sin obstáculos.",
+        description: "El Sol estará a solo unos 4° de altura. Elige un lugar sin colinas, edificios ni árboles que bloqueen el horizonte occidental.",
+      },
+      {
+        label: "Seguridad",
+        title: "Protege tus ojos.",
+        description: "Utiliza gafas de eclipse ISO 12312-2 antes y después de la totalidad. Las gafas de sol normales y los filtros caseros no son seguros.",
+      },
+      {
+        label: "Horario",
+        title: "Llega con mucha antelación.",
+        description: "Prevé aglomeraciones y tráfico. Instálate bastante antes de las 19:35, consulta el tiempo y ten preparada otra ubicación.",
+      },
+    ],
+  },
+  safety: {
+    kicker: "La regla de los 61 segundos",
+    headlineBefore: "Quítate las gafas solo durante la ",
+    headlineEmphasis: "totalidad completa",
+    headlineAfter: ".",
+    body: "En cuanto aparezca aunque sea una franja de luz solar directa, vuelve a ponerte inmediatamente las gafas de eclipse. No mires nunca por prismáticos, una cámara o un telescopio sin un filtro solar específico colocado en la parte frontal.",
+  },
+  finalCta: {
+    kicker: "Tarragona · 12 de agosto de 2026",
+    headlineFirst: "Nos vemos",
+    headlineSecond: "en la ",
+    headlineEmphasis: "sombra.",
+    link: "Información oficial del evento",
+  },
+  footer: {
+    timingNote: "Los horarios son locales y pueden variar ligeramente según la ubicación exacta.",
+    about: "Sobre esta web",
+    council: "Ayuntamiento de Tarragona",
+    ign: "IGN España",
+    tagline: "Un propósito. Un lugar. Un minuto inolvidable.",
+    eclipseGuide: "Guía del eclipse",
+  },
+  about: {
+    eyebrow: "Sobre este proyecto",
+    headlineFirst: "Una web.",
+    headlineEmphasis: "Una sombra.",
+    intro: "Esta es una web con un único propósito para un acontecimiento singular: el eclipse total de Sol de 2026 en Tarragona.",
+    kicker: "12 de agosto de 2026 · Tarragona",
+    bodyHeadline: "Hecha para",
+    bodyHeadlineEmphasis: "un solo minuto.",
+    articles: [
+      {
+        label: "Propósito",
+        title: "Un único propósito, deliberadamente.",
+        bodyBefore: "Esto no es un portal general de astronomía ni una plataforma permanente de eventos. Cada página, horario e indicación existe para ayudar a prepararse para el eclipse de Tarragona del 12 de agosto de 2026.",
+      },
+      {
+        label: "Momento",
+        title: "Un acontecimiento singular en el Mediterráneo.",
+        bodyBefore: "El Sol estará bajo sobre el horizonte occidental cuando llegue la totalidad. Durante unos 61 segundos, la luz del día dará paso a la sombra de la Luna y la corona solar se hará visible sobre Tarragona.",
+      },
+      {
+        label: "Creación",
+        title: "Generada con inteligencia focalizada.",
+        bodyBefore: "La web se ha generado con ",
+        bodyStrong: "Sol 5.6 Extra High",
+        bodyAfter: " y se ha creado a partir de un objetivo claro: hacer que el eclipse se sienta inmediato y, a la vez, explicar con claridad los horarios, la preparación y la seguridad ocular.",
+      },
+    ],
+    returnLink: "Volver a la guía del eclipse",
+  },
+} satisfies LocaleConfig;
