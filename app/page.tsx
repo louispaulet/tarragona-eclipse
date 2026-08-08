@@ -1,6 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+
+const ClientHashRouter = dynamic(() => import("./hash-router"), {
+  ssr: false,
+  loading: () => <main className="route-loading" aria-label="Loading eclipse guide" />,
+});
 
 const TOTALITY = new Date("2026-08-12T20:29:00+02:00").getTime();
 
@@ -22,6 +29,20 @@ function getCountdown(): Countdown {
     seconds: Math.floor((distance / 1_000) % 60),
     finished: distance === 0,
   };
+}
+
+function scrollToSection(sectionId: string) {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+}
+
+function RouteScrollTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
+
+  return null;
 }
 
 function ArrowIcon() {
@@ -59,7 +80,7 @@ function ClockIcon() {
   );
 }
 
-export default function Home() {
+function LandingPage() {
   const [countdown, setCountdown] = useState<Countdown | null>(null);
 
   useEffect(() => {
@@ -87,15 +108,16 @@ export default function Home() {
     <main>
       <section className="hero" id="top">
         <nav className="nav wrap" aria-label="Main navigation">
-          <a className="brand" href="#top" aria-label="Eclipse Tarragona home">
+          <Link className="brand" to="/" aria-label="Eclipse Tarragona home">
             <span className="brand-mark" aria-hidden="true" />
             <span>ECLIPSE<br />TARRAGONA</span>
-          </a>
+          </Link>
           <div className="nav-links">
-            <a href="#timeline">Timeline</a>
-            <a href="#viewing">Viewing guide</a>
+            <button type="button" onClick={() => scrollToSection("timeline")}>Timeline</button>
+            <button type="button" onClick={() => scrollToSection("viewing")}>Viewing guide</button>
+            <Link to="/about">About</Link>
           </div>
-          <a className="nav-cta" href="#viewing">Plan your spot</a>
+          <button className="nav-cta" type="button" onClick={() => scrollToSection("viewing")}>Plan your spot</button>
         </nav>
 
         <div className="hero-orbit" aria-hidden="true">
@@ -118,9 +140,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a className="scroll-cue" href="#countdown" aria-label="Scroll to countdown">
+        <button className="scroll-cue" type="button" onClick={() => scrollToSection("countdown")} aria-label="Scroll to countdown">
           <span>Discover</span><i aria-hidden="true" />
-        </a>
+        </button>
       </section>
 
       <section className="countdown-section" id="countdown">
@@ -245,11 +267,111 @@ export default function Home() {
           </div>
           <p>Times are local and may vary slightly by exact location.</p>
           <div>
+            <Link to="/about">About this site</Link>
             <a href="https://www.tarragona.cat/eclipsi/eclipsi" target="_blank" rel="noreferrer">Ajuntament de Tarragona</a>
             <a href="https://eclipses.ign.es/" target="_blank" rel="noreferrer">IGN España</a>
           </div>
         </div>
       </footer>
     </main>
+  );
+}
+
+function AboutPage() {
+  return (
+    <main className="about-page">
+      <section className="about-hero">
+        <nav className="nav wrap" aria-label="About navigation">
+          <Link className="brand" to="/" aria-label="Eclipse Tarragona home">
+            <span className="brand-mark" aria-hidden="true" />
+            <span>ECLIPSE<br />TARRAGONA</span>
+          </Link>
+          <div className="nav-links">
+            <Link to="/">Eclipse guide</Link>
+            <a href="https://www.tarragona.cat/eclipsi/eclipsi" target="_blank" rel="noreferrer">Official information</a>
+          </div>
+          <Link className="nav-cta" to="/">Back home</Link>
+        </nav>
+
+        <div className="about-orbit" aria-hidden="true">
+          <div className="sun-glow" />
+          <div className="moon-disc" />
+        </div>
+
+        <div className="about-intro wrap">
+          <p className="eyebrow"><span /> About this project</p>
+          <h1>One site.<br /><em>One shadow.</em></h1>
+          <p>
+            This is a single-purpose website for a singular event: the 2026 total
+            solar eclipse in Tarragona.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-body">
+        <div className="wrap about-grid">
+          <div className="about-heading">
+            <p className="section-kicker">12 August 2026 · Tarragona</p>
+            <h2>Made for<br /><em>one minute.</em></h2>
+          </div>
+          <div className="about-copy">
+            <article>
+              <span>01 / Purpose</span>
+              <h3>Deliberately single-purpose.</h3>
+              <p>
+                This is not a general astronomy portal or an evergreen events
+                platform. Every page, time, and instruction exists to help people
+                prepare for Tarragona&apos;s eclipse on 12 August 2026.
+              </p>
+            </article>
+            <article>
+              <span>02 / Moment</span>
+              <h3>A singular event on the Mediterranean.</h3>
+              <p>
+                The Sun will sit low over the western horizon when totality arrives.
+                For roughly 61 seconds, daylight gives way to the Moon&apos;s shadow and
+                the solar corona becomes visible above Tarragona.
+              </p>
+            </article>
+            <article>
+              <span>03 / Making</span>
+              <h3>Generated with focused intelligence.</h3>
+              <p>
+                The site was generated using <strong>Sol 5.6 Extra High</strong> and
+                shaped around one clear brief: make the eclipse feel immediate while
+                keeping timing, preparation, and eye safety easy to understand.
+              </p>
+            </article>
+            <Link className="about-return" to="/">
+              Return to the eclipse guide <ArrowIcon />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="wrap footer-inner">
+          <Link className="brand footer-brand" to="/">
+            <span className="brand-mark" aria-hidden="true" />
+            <span>ECLIPSE<br />TARRAGONA</span>
+          </Link>
+          <p>One purpose. One place. One unforgettable minute.</p>
+          <Link to="/">Eclipse guide</Link>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+export default function EclipseSite() {
+  return (
+    <ClientHashRouter>
+      <RouteScrollTop />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </ClientHashRouter>
   );
 }
