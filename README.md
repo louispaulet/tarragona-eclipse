@@ -4,7 +4,15 @@ A single-purpose website for the total solar eclipse visible from Tarragona on
 12 August 2026. It includes a live countdown, the local eclipse timeline,
 viewing advice, and essential eye-safety guidance.
 
-Live site: [louispaulet.github.io/tarragona-eclipse](https://louispaulet.github.io/tarragona-eclipse/)
+Live site: [eclipse-2026.thefrenchartist.dev](https://eclipse-2026.thefrenchartist.dev/)
+
+## Routes
+
+The static site uses `HashRouter` so every client-side route works on GitHub
+Pages without server rewrites:
+
+- `/#/` — eclipse countdown, timeline, viewing guide, and safety information
+- `/#/about` — the purpose of this single-event website and how it was made
 
 ## Local development
 
@@ -37,9 +45,8 @@ Build and deploy:
 npm run deploy
 ```
 
-The deployment configuration accounts for the repository path at
-`/tarragona-eclipse/` and adds `.nojekyll` so GitHub Pages serves Next.js assets
-from `_next` correctly.
+The deployment publishes `public/CNAME` for the custom domain and adds
+`.nojekyll` so GitHub Pages serves Next.js assets from `_next` correctly.
 
 ## Eclipse safety
 
