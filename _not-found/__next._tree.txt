@@ -1,2 +1,2 @@
-:HL["/tarragona-eclipse/_next/static/chunks/01od2acajkjpi.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"vWRJvWzBwnxq4q_I0Nr3s"}
+:HL["/_next/static/chunks/09rmwwuvxvr.x.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"8NZ5CQrB9Rwt7P4D7OVX5"}

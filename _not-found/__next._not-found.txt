@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[39756,["/tarragona-eclipse/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
-3:I[37457,["/tarragona-eclipse/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
+2:I[39756,["/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
+3:I[37457,["/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"vWRJvWzBwnxq4q_I0Nr3s"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"8NZ5CQrB9Rwt7P4D7OVX5"}
