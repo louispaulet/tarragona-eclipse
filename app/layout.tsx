@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   description: translations[defaultLocale].meta.description,
   icons: {
     icon: {
-      url: "/eclipse_logo.webp",
+      url: "/eclipse_logo-transparent.webp",
       type: "image/webp",
     },
-    shortcut: "/eclipse_logo.webp",
+    shortcut: "/eclipse_logo-transparent.webp",
   },
   openGraph: {
     type: "website",
