@@ -47,7 +47,7 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 }
 .nav { height: 100px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; border-bottom: 1px solid rgba(255,255,255,.15); }
 .brand { display: flex; align-items: center; gap: 12px; font: 700 10px/1.05 var(--font-geist-mono), monospace; letter-spacing: .12em; }
-.brand-mark { width: 28px; height: 28px; border-radius: 50%; display: block; background: #050506; box-shadow: -4px 0 0 var(--orange), 0 0 16px rgba(240,82,45,.65); }
+.brand-mark { width: 28px; height: 28px; border-radius: 50%; display: block; flex: 0 0 auto; background: center / cover no-repeat url("/eclipse_logo.webp"); }
 .nav-links { display: flex; gap: 36px; font-size: 13px; color: rgba(255,255,255,.7); }
 .nav-links a, .nav-links button, .nav-cta { transition: color .2s ease, border-color .2s ease; }
 .nav-links button { padding: 0; border: 0; background: transparent; cursor: pointer; }

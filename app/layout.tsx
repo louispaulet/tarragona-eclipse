@@ -16,8 +16,11 @@ export const metadata: Metadata = {
   title: "Eclipse Tarragona 2026",
   description: "Everything you need to witness Tarragona's total solar eclipse on 12 August 2026.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: {
+      url: "/eclipse_logo.webp",
+      type: "image/webp",
+    },
+    shortcut: "/eclipse_logo.webp",
   },
 };
 
