@@ -338,7 +338,10 @@ function LandingPage({ locale, copy, onLocaleChange, isArchive = false }: Locali
 
           <div className="timeline">
             {copy.timeline.events.map((event, index) => (
-              <article className={index === 1 ? "highlight" : undefined} key={event.time}>
+              <article
+                className={index === 1 ? "highlight" : undefined}
+                key={`${event.time}-${event.title}`}
+              >
                 {index === 1 && (
                   <span className="timeline-total-badge">{copy.timeline.totalBadge}</span>
                 )}
