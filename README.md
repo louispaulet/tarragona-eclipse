@@ -35,25 +35,36 @@ Nacional (IGN):
 - [Eclipse total de Sol del 2 de agosto de 2027](https://eclipses.ign.es/eclipse-total-sol-de-2-de-agosto-2027.html)
 - [IGN eclipse portal](https://eclipses.ign.es/)
 
-## Local development
+## Commands
 
-Requirements: Node.js 22.13 or newer and npm.
+Requirements: Node.js 22.13 or newer, npm, and Make.
 
 ```bash
-npm install
-npm run dev
+make install
+make up
+```
+
+The local site runs at `http://127.0.0.1:3000`. Useful commands:
+
+```bash
+make status   # show whether the local site is running
+make logs     # follow its output
+make kill     # stop it
+make restart  # stop and start it
+make test     # lint, build, and run regression tests
+make clean    # remove generated output
 ```
 
 ## Deployment
 
-Build and publish the GitHub Pages edition:
+GitHub Pages is the only deployment target. Test and publish with:
 
 ```bash
-npm run deploy
+make deploy
 ```
 
-The project also contains OpenAI Sites hosting metadata and can be built with
-`npm run build` for its Cloudflare-compatible deployment artifact.
+`make deploy` runs the complete test suite before publishing the generated
+`out/` directory to the `gh-pages` branch with the configured custom domain.
 
 ## Eclipse safety
 
