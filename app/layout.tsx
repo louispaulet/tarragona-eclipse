@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { defaultLocale, translations } from "./locales";
+import {
+  defaultLocale2027,
+  translations2027,
+} from "./locales/eclipse-2027";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eclipse-2026.thefrenchartist.dev"),
-  title: translations[defaultLocale].meta.title,
-  description: translations[defaultLocale].meta.description,
+  title: translations2027[defaultLocale2027].meta.title,
+  description: translations2027[defaultLocale2027].meta.description,
   icons: {
     icon: {
       url: "/eclipse_logo-transparent.webp",
@@ -26,28 +29,28 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: translations[defaultLocale].meta.title,
-    description: translations[defaultLocale].meta.description,
+    title: translations2027[defaultLocale2027].meta.title,
+    description: translations2027[defaultLocale2027].meta.description,
     images: [
       {
         url: "/og.png",
-        width: 1734,
-        height: 907,
-        alt: translations[defaultLocale].meta.imageAlt,
+        width: 1733,
+        height: 908,
+        alt: translations2027[defaultLocale2027].meta.imageAlt,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: translations[defaultLocale].meta.title,
-    description: translations[defaultLocale].meta.description,
+    title: translations2027[defaultLocale2027].meta.title,
+    description: translations2027[defaultLocale2027].meta.description,
     images: ["/og.png"],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={defaultLocale}>
+    <html lang={defaultLocale2027}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   );

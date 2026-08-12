@@ -27,8 +27,8 @@ test("renders localized production metadata", async () => {
     /^text\/html\b/i,
   );
   const html = await response.text();
-  assert.match(html, /<html lang="ca">/i);
-  assert.match(html, /<title>Eclipsi de Tarragona 2026<\/title>/i);
+  assert.match(html, /<html lang="es">/i);
+  assert.match(html, /<title>Eclipse Andalucía 2027<\/title>/i);
   assert.match(
     html,
     /<meta property="og:image" content="https:\/\/eclipse-2026\.thefrenchartist\.dev\/og\.png"\s*\/?>/i,

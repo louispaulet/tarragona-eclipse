@@ -1,5 +1,5 @@
 {
-  "name": "eclipse-tarragona-2026",
+  "name": "eclipse-andalucia-2027",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://eclipse-2026.thefrenchartist.dev/",
@@ -46,5 +46,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "Eclipse Tarragona 2026"
+  "displayName": "Eclipse Andalucía 2027"
 }

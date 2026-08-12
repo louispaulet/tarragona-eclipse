@@ -11,26 +11,40 @@ import {
   useNavigate,
 } from "react-router-dom";
 import {
-  defaultLocale,
   isLocale,
   languageOptions,
-  translations,
+  translations as archiveTranslations,
   type Locale,
   type LocaleConfig,
 } from "./locales";
+import {
+  defaultLocale2027,
+  translations2027,
+} from "./locales/eclipse-2027";
 
 const ClientHashRouter = dynamic(() => import("./hash-router"), {
   ssr: false,
   loading: () => (
     <main
       className="route-loading"
-      aria-label={translations[defaultLocale].loadingLabel}
+      aria-label={translations2027[defaultLocale2027].loadingLabel}
     />
   ),
 });
 
-const TOTALITY = new Date("2026-08-12T20:29:00+02:00").getTime();
+const TOTALITY_2027 = new Date("2027-08-02T10:45:00+02:00").getTime();
+const TOTALITY_2026 = new Date("2026-08-12T20:29:00+02:00").getTime();
 const LANGUAGE_STORAGE_KEY = "eclipse-tarragona-language";
+const ECLIPSE_2027_URL =
+  "https://eclipses.ign.es/eclipse-total-sol-de-2-de-agosto-2027.html";
+const ECLIPSE_2026_URL = "https://www.tarragona.cat/eclipsi/eclipsi";
+
+const archiveLabels: Record<Locale, { notice: string; current: string }> = {
+  ca: { notice: "Arxiu · Eclipsi Tarragona 2026", current: "Anar a l’eclipsi 2027" },
+  es: { notice: "Archivo · Eclipse Tarragona 2026", current: "Ir al eclipse 2027" },
+  fr: { notice: "Archives · Éclipse Tarragone 2026", current: "Voir l’éclipse 2027" },
+  en: { notice: "Archive · Eclipse Tarragona 2026", current: "Go to the 2027 eclipse" },
+};
 
 type Countdown = {
   days: number;
@@ -44,10 +58,11 @@ type LocalizedPageProps = {
   locale: Locale;
   copy: LocaleConfig;
   onLocaleChange: (locale: Locale) => void;
+  isArchive?: boolean;
 };
 
-function getCountdown(): Countdown {
-  const distance = Math.max(0, TOTALITY - Date.now());
+function getCountdown(target: number): Countdown {
+  const distance = Math.max(0, target - Date.now());
 
   return {
     days: Math.floor(distance / 86_400_000),
@@ -62,7 +77,7 @@ function getInitialLocale(search: string): Locale {
   const urlLocale = new URLSearchParams(search).get("lang");
   if (isLocale(urlLocale)) return urlLocale;
 
-  if (typeof window === "undefined") return defaultLocale;
+  if (typeof window === "undefined") return defaultLocale2027;
 
   try {
     const storedLocale = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
@@ -75,7 +90,7 @@ function getInitialLocale(search: string): Locale {
     .map((language) => language.toLowerCase().split("-")[0])
     .find(isLocale);
 
-  return browserLocale ?? defaultLocale;
+  return browserLocale ?? defaultLocale2027;
 }
 
 function localizedPath(path: string, locale: Locale) {
@@ -176,15 +191,19 @@ function LanguageSwitcher({
   );
 }
 
-function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
+function LandingPage({ locale, copy, onLocaleChange, isArchive = false }: LocalizedPageProps) {
   const [countdown, setCountdown] = useState<Countdown | null>(null);
+  const homePath = isArchive ? "/archive/2026" : "/";
+  const aboutPath = isArchive ? "/archive/2026/about" : "/about";
+  const officialUrl = isArchive ? ECLIPSE_2026_URL : ECLIPSE_2027_URL;
 
   useEffect(() => {
-    const update = () => setCountdown(getCountdown());
+    const target = isArchive ? TOTALITY_2026 : TOTALITY_2027;
+    const update = () => setCountdown(getCountdown(target));
     update();
     const timer = window.setInterval(update, 1000);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [isArchive]);
 
   const units = [
     [copy.countdown.units.days, countdown?.days ?? "—"],
@@ -197,10 +216,18 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
   return (
     <main>
       <section className="hero" id="top">
+        {isArchive && (
+          <div className="archive-notice">
+            <span>{archiveLabels[locale].notice}</span>
+            <Link to={localizedPath("/", locale)}>
+              {archiveLabels[locale].current} <ArrowIcon />
+            </Link>
+          </div>
+        )}
         <nav className="nav wrap" aria-label={copy.nav.mainLabel}>
           <Link
             className="brand"
-            to={localizedPath("/", locale)}
+            to={localizedPath(homePath, locale)}
             aria-label={copy.nav.homeLabel}
           >
             <span className="brand-mark" aria-hidden="true" />
@@ -213,7 +240,10 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
             <button type="button" onClick={() => scrollToSection("viewing")}>
               {copy.nav.viewingGuide}
             </button>
-            <Link to={localizedPath("/about", locale)}>{copy.nav.about}</Link>
+            <Link to={localizedPath(aboutPath, locale)}>{copy.nav.about}</Link>
+            {!isArchive && copy.nav.archive && (
+              <Link to={localizedPath("/archive/2026", locale)}>{copy.nav.archive}</Link>
+            )}
           </div>
           <LanguageSwitcher
             locale={locale}
@@ -378,7 +408,7 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
             <em>{copy.finalCta.headlineEmphasis}</em>
           </h2>
           <a
-            href="https://www.tarragona.cat/eclipsi/eclipsi"
+            href={officialUrl}
             target="_blank"
             rel="noreferrer"
           >
@@ -395,9 +425,9 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
           </div>
           <p>{copy.footer.timingNote}</p>
           <div>
-            <Link to={localizedPath("/about", locale)}>{copy.footer.about}</Link>
+            <Link to={localizedPath(aboutPath, locale)}>{copy.footer.about}</Link>
             <a
-              href="https://www.tarragona.cat/eclipsi/eclipsi"
+              href={officialUrl}
               target="_blank"
               rel="noreferrer"
             >
@@ -406,6 +436,9 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
             <a href="https://eclipses.ign.es/" target="_blank" rel="noreferrer">
               {copy.footer.ign}
             </a>
+            {!isArchive && copy.footer.archive && (
+              <Link to={localizedPath("/archive/2026", locale)}>{copy.footer.archive}</Link>
+            )}
           </div>
         </div>
       </footer>
@@ -413,35 +446,49 @@ function LandingPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
   );
 }
 
-function AboutPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
+function AboutPage({ locale, copy, onLocaleChange, isArchive = false }: LocalizedPageProps) {
+  const homePath = isArchive ? "/archive/2026" : "/";
+  const officialUrl = isArchive ? ECLIPSE_2026_URL : ECLIPSE_2027_URL;
+
   return (
     <main className="about-page">
       <section className="about-hero">
+        {isArchive && (
+          <div className="archive-notice">
+            <span>{archiveLabels[locale].notice}</span>
+            <Link to={localizedPath("/", locale)}>
+              {archiveLabels[locale].current} <ArrowIcon />
+            </Link>
+          </div>
+        )}
         <nav className="nav wrap" aria-label={copy.nav.aboutLabel}>
           <Link
             className="brand"
-            to={localizedPath("/", locale)}
+            to={localizedPath(homePath, locale)}
             aria-label={copy.nav.homeLabel}
           >
             <span className="brand-mark" aria-hidden="true" />
             <BrandText>{copy.brand}</BrandText>
           </Link>
           <div className="nav-links">
-            <Link to={localizedPath("/", locale)}>{copy.nav.eclipseGuide}</Link>
+            <Link to={localizedPath(homePath, locale)}>{copy.nav.eclipseGuide}</Link>
             <a
-              href="https://www.tarragona.cat/eclipsi/eclipsi"
+              href={officialUrl}
               target="_blank"
               rel="noreferrer"
             >
               {copy.nav.officialInformation}
             </a>
+            {!isArchive && copy.nav.archive && (
+              <Link to={localizedPath("/archive/2026", locale)}>{copy.nav.archive}</Link>
+            )}
           </div>
           <LanguageSwitcher
             locale={locale}
             label={copy.languageSelector.label}
             onChange={onLocaleChange}
           />
-          <Link className="nav-cta" to={localizedPath("/", locale)}>
+          <Link className="nav-cta" to={localizedPath(homePath, locale)}>
             {copy.nav.backHome}
           </Link>
         </nav>
@@ -488,7 +535,7 @@ function AboutPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
                 </p>
               </article>
             ))}
-            <Link className="about-return" to={localizedPath("/", locale)}>
+            <Link className="about-return" to={localizedPath(homePath, locale)}>
               {copy.about.returnLink} <ArrowIcon />
             </Link>
           </div>
@@ -497,12 +544,12 @@ function AboutPage({ locale, copy, onLocaleChange }: LocalizedPageProps) {
 
       <footer>
         <div className="wrap footer-inner">
-          <Link className="brand footer-brand" to={localizedPath("/", locale)}>
+          <Link className="brand footer-brand" to={localizedPath(homePath, locale)}>
             <span className="brand-mark" aria-hidden="true" />
             <BrandText>{copy.brand}</BrandText>
           </Link>
           <p>{copy.footer.tagline}</p>
-          <Link to={localizedPath("/", locale)}>{copy.footer.eclipseGuide}</Link>
+          <Link to={localizedPath(homePath, locale)}>{copy.footer.eclipseGuide}</Link>
         </div>
       </footer>
     </main>
@@ -517,7 +564,10 @@ function LocalizedRoutes() {
   );
   const requestedLocale = new URLSearchParams(location.search).get("lang");
   const locale = isLocale(requestedLocale) ? requestedLocale : preferredLocale;
-  const copy = translations[locale];
+  const isArchiveRoute = location.pathname.startsWith("/archive/2026");
+  const copy = isArchiveRoute
+    ? archiveTranslations[locale]
+    : translations2027[locale];
 
   useEffect(() => {
     if (isLocale(requestedLocale)) return;
@@ -554,6 +604,12 @@ function LocalizedRoutes() {
   };
 
   const pageProps = { locale, copy, onLocaleChange: changeLocale };
+  const archivePageProps = {
+    locale,
+    copy: archiveTranslations[locale],
+    onLocaleChange: changeLocale,
+    isArchive: true,
+  };
 
   return (
     <>
@@ -561,6 +617,8 @@ function LocalizedRoutes() {
       <Routes>
         <Route path="/" element={<LandingPage {...pageProps} />} />
         <Route path="/about" element={<AboutPage {...pageProps} />} />
+        <Route path="/archive/2026" element={<LandingPage {...archivePageProps} />} />
+        <Route path="/archive/2026/about" element={<AboutPage {...archivePageProps} />} />
         <Route
           path="*"
           element={<Navigate to={localizedPath("/", locale)} replace />}

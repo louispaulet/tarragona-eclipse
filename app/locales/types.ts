@@ -22,6 +22,7 @@ export type LocaleConfig = {
     eclipseGuide: string;
     officialInformation: string;
     backHome: string;
+    archive?: string;
   };
   hero: {
     eyebrow: string;
@@ -91,6 +92,7 @@ export type LocaleConfig = {
     ign: string;
     tagline: string;
     eclipseGuide: string;
+    archive?: string;
   };
   about: {
     eyebrow: string;
